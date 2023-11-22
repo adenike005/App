@@ -1,6 +1,8 @@
 import { useFonts } from 'expo-font';
 import { StatusBar } from 'react-native';
 import { StyleSheet, Text, View } from 'react-native';
+import Color from './Const/Color';
+import Index from './Navigation/Index';
 
 export default function App() {
 
@@ -24,7 +26,9 @@ export default function App() {
   return (
     <>
      
-     <StatusBar barStyle="light-content"/>
+     <StatusBar barStyle="light-content" backgroundColor={Color.primary}/>
+     {/* <Text>Hello</Text> */}
+     <Index/>
     </>
   );
 }
