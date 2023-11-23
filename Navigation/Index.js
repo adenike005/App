@@ -25,11 +25,11 @@ const Index = () => {
             headerShown: false,
           }}>
             <Stack.Screen name='Splash' component={Splash}/>
-            <Stack.Screen name='Onboardings' component={Onboardings}/>
+            {/* <Stack.Screen name='Onboardings' component={Onboardings}/> */}
             
-            {/* {onboardingScreens.map(({ name, component }) => (
+            {onboardingScreens.map(({ name, component }) => (
           <Stack.Screen key={name} name={name} component={component} />
-        ))} */}
+        ))}
 
 
         </Stack.Navigator>

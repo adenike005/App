@@ -53,7 +53,7 @@ const Splash = ({navigation}) => {
         useNativeDriver: false,
       }).start(() => {
         setTimeout(() => {
-          navigation.navigate('Onboardings');
+          navigation.navigate('Onboarding1');
         }, 500);
       });
       
@@ -68,7 +68,7 @@ const Splash = ({navigation}) => {
         setTimeout(() => {
           // Navigate to onboarding screen
           // Replace 'Onboardings' with the actual onboarding screen name
-          navigation.replace('Onboardings');
+          navigation.replace('Onboarding1');
         }, 1000); 
       });
     });
