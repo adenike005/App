@@ -9,6 +9,7 @@ import DotNavigation from '../Const/DotNavigation';
 import Onboarding3 from '../Screen/Onboarding3';
 import Sign from '../Screen/Sign';
 import Signin from '../Screen/Signin';
+import Login from '../Screen/Login';
 
 const Stack = createStackNavigator();
 
@@ -34,6 +35,7 @@ const Index = () => {
 
         <Stack.Screen name='Sign' component={Sign}/>
         <Stack.Screen name='Signin' component={Signin}/>
+        <Stack.Screen name='Login' component={Login}/>
 
 
         </Stack.Navigator>
