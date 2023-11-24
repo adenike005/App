@@ -136,7 +136,7 @@ const Onboarding3 = ({ navigation }) => {
             >
               <Button
                 title="Continue"
-                onPress={() => navigation.navigate("Onboarding3")}
+                onPress={() => navigation.navigate('Sign')}
               />
             </View>
           </View>

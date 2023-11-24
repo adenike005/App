@@ -1,24 +1,4 @@
-// import { View, Text, Image, StyleSheet, Dimensions, Animated } from 'react-native'
-// import React, { useRef, useEffect } from 'react'
-// import Images from '../Const/Images'
-// import Color from '../Const/Color'
 
-// const Splash = () => {
-//     const moveAnim = useRef(new Animated.Value(0)).current;
-//     const fadeAnim = useRef(new Animated.Value(0)).current;
-//   return (
-//     <View style={{flex:1, backgroundColor:Color.primary, justifyContent:"center", alignItems:"center"}}>
-
-//         <View>
-//             <Image source={Images.logo} style={{width: 200, height: 200}} resizeMode='contain'/>
-//             <Text style={{textAlign:"center", color:Color.white, textTransform:"uppercase", fontSize:36,letterSpacing: 5, fontFamily:"Black"}}>FINENDAR</Text>
-//         </View>
-     
-//     </View>
-//   )
-// }
-
-// export default Splash
 
 import { View, Text, Image, StyleSheet, Dimensions, Animated } from 'react-native'
 import React, { useRef, useEffect } from 'react'
