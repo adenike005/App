@@ -121,7 +121,7 @@ const Signin = ({ navigation }) => {
           />
         </View>
 
-        <Text style={{ marginBottom: 5 }}>()</Text>
+        <Text style={{ marginBottom: 5 }}>{validate ? "Second Name" : errors.email}</Text>
         <View style={styles.inputContainer}>
           <TouchableOpacity>
             <Icon name="person" size={20} color={Color.grey} />
