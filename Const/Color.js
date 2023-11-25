@@ -3,7 +3,7 @@ const Color = {
     white : '#fff',
     dark: '#000',
     secondary: '#EBE3F3',
-    // white: '#ffff',
+    red: '#FF0000',
     // light: 'rgba(0,0,0,0.7)',
     grey: "grey",
     // purple:"#3B608C"

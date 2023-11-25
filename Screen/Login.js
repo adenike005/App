@@ -1,136 +1,199 @@
-import React, { useState, useEffect } from 'react'; 
-import { View, TextInput, TouchableOpacity, 
-	Text, StyleSheet } from 'react-native'; 
+import React, { useState } from 'react';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TouchableOpacity,
+  ScrollView,
+  TextInput,
+  Alert,
+} from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import Color from '../Const/Color';
 
-const Login = () => { 
+const Signin = ({ navigation }) => {
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [inputs, setInputs] = useState({
+    email: '',
+    firstname: '',
+    secondname: '',
+    password: '',
+  });
+  const [errors, setErrors] = useState({});
 
-	// State variables to store form inputs, 
-	// errors, and form validity 
-	const [name, setName] = useState(''); 
-	const [email, setEmail] = useState(''); 
-	const [password, setPassword] = useState(''); 
-	const [errors, setErrors] = useState({}); 
-	const [isFormValid, setIsFormValid] = useState(false); 
+  const validate = () => {
+    let isValid = true;
+    const newErrors = {};
 
-	useEffect(() => { 
+    if (!inputs.email) {
+      newErrors.email = 'Please input email';
+      isValid = false;
+    } else if (!inputs.email.match(/\S+@\S+\.\S+/)) {
+      newErrors.email = 'Please input a valid email';
+      isValid = false;
+    }
 
-		// Trigger form validation when name, 
-		// email, or password changes 
-		validateForm(); 
-	}, [name, email, password]); 
+    if (!inputs.firstname) {
+      newErrors.firstname = 'Please input firstname';
+      isValid = false;
+    }
 
-	const validateForm = () => { 
-		let errors = {}; 
+    if (!inputs.secondname) {
+      newErrors.secondname = 'Please input SecondName';
+      isValid = false;
+    }
 
-		// Validate name field 
-		if (!name) { 
-			errors.name = 'Name is required.'; 
-		} 
+    if (!inputs.password) {
+      newErrors.password = 'Please input password';
+      isValid = false;
+    } else if (inputs.password.length < 5) {
+      newErrors.password = 'Min password length of 5';
+      isValid = false;
+    }
 
-		// Validate email field 
-		if (!email) { 
-			errors.email = 'Email is required.'; 
-		} else if (!/\S+@\S+\.\S+/.test(email)) { 
-			errors.email = 'Email is invalid.'; 
-		} 
+    setErrors(newErrors);
 
-		// Validate password field 
-		if (!password) { 
-			errors.password = 'Password is required.'; 
-		} else if (password.length < 6) { 
-			errors.password = 'Password must be at least 6 characters.'; 
-		} 
+    if (isValid) {
+      register();
+    }
+  };
 
-		// Set the errors and update form validity 
-		setErrors(errors); 
-		setIsFormValid(Object.keys(errors).length === 0); 
-	}; 
+  const register = async () => {
+    try {
+      // Simulating an asynchronous operation (e.g., API call)
+      // Remove the setTimeout when integrating with a real backend
+      await new Promise((resolve) => setTimeout(resolve, 3000));
 
-	const handleSubmit = () => { 
-		if (isFormValid) { 
+      // Save data to AsyncStorage
+      await AsyncStorage.setItem('userData', JSON.stringify(inputs));
 
-			// Form is valid, perform the submission logic 
-			console.log('Form submitted successfully!'); 
-		} else { 
-			
-			// Form is invalid, display error messages 
-			console.log('Form has errors. Please correct them.'); 
-		} 
-	}; 
+      // Navigate to the login screen
+      navigation.navigate('Login');
+    } catch (error) {
+      Alert.alert('Error', 'Something went wrong');
+    }
+  };
 
-	return ( 
-		<View style={styles.container}> 
-			<TextInput 
-				style={styles.input} 
-				placeholder="Name"
-				value={name} 
-				onChangeText={setName} 
-			/> 
-			<TextInput 
-				style={styles.input} 
-				placeholder="Email"
-				value={email} 
-				onChangeText={setEmail} 
-			/> 
-			<TextInput 
-				style={styles.input} 
-				placeholder="Password"
-				value={password} 
-				onChangeText={setPassword} 
-				secureTextEntry 
-			/> 
-			<TouchableOpacity 
-				style={[styles.button, { opacity: isFormValid ? 1 : 0.5 }]} 
-				disabled={!isFormValid} 
-				onPress={handleSubmit} 
-			> 
-				<Text style={styles.buttonText}>Submit</Text> 
-			</TouchableOpacity> 
-			
-			{/* Display error messages */} 
-			{Object.values(errors).map((error, index) => ( 
-				<Text key={index} style={styles.error}> 
-					{error} 
-				</Text> 
-			))} 
-		</View> 
-	); 
-}; 
+  const handleOnchange = (text, input) => {
+    setInputs((prevInputs) => ({ ...prevInputs, [input]: text }));
+  };
 
-// Styles for the components 
-const styles = StyleSheet.create({ 
-	container: { 
-		flex: 1, 
-		padding: 16, 
-		justifyContent: 'center', 
-	}, 
-	input: { 
-		height: 60, 
-		borderColor: '#ccc', 
-		borderWidth: 1, 
-		marginBottom: 12, 
-		paddingHorizontal: 10, 
-		borderRadius: 8, 
-		fontSize: 16, 
-	}, 
-	button: { 
-		backgroundColor: 'green', 
-		borderRadius: 8, 
-		paddingVertical: 10, 
-		alignItems: 'center', 
-		marginTop: 16, 
-		marginBottom: 12, 
-	}, 
-	buttonText: { 
-		color: '#fff', 
-		fontWeight: 'bold', 
-		fontSize: 16, 
-	}, 
-	error: { 
-		color: 'red', 
-		fontSize: 20, 
-		marginBottom: 12, 
-	}, 
-}); 
+  return (
+    <ScrollView style={{ flex: 1 }}>
+      <View>
+        <TouchableOpacity>
+          <Icon
+            name="arrow-back"
+            size={30}
+            color={Color.dark}
+            onPress={() => navigation.goBack()}
+          />
+        </TouchableOpacity>
+      </View>
+      <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+        <Image
+          // source={/* Your image source */ }
+          style={{ width: 50, height: 50 }}
+          resizeMode="contain"
+        />
+        <Text style={{ fontFamily: 'Black', fontSize: 25, marginTop: 10, marginBottom: 10 }}>
+          Create Account
+        </Text>
+        <Text style={{ fontFamily: 'Thin', fontSize: 15 }}>
+          Elevate your Project Management with us
+        </Text>
+      </View>
 
-export default Login;
+      <View style={{ marginTop: 20, marginHorizontal: '10%' }}>
+        {/* ... (other inputs) */}
+        <Text style={{ marginBottom: 5 }}>First Name</Text>
+        <View style={styles.inputContainer}>
+          <TouchableOpacity>
+            <Icon name="person" size={20} color={Color.grey} />
+          </TouchableOpacity>
+          <TextInput
+            placeholder="First name"
+            style={styles.input}
+            onChangeText={(text) => handleOnchange(text, 'firstname')}
+          />
+        </View>
+
+        <Text style={{ marginBottom: 5 }}>()</Text>
+        <View style={styles.inputContainer}>
+          <TouchableOpacity>
+            <Icon name="person" size={20} color={Color.grey} />
+          </TouchableOpacity>
+          <TextInput
+            placeholder="Last name"
+            style={styles.input}
+            onChangeText={(text) => handleOnchange(text, 'secondname')}
+          />
+        </View>
+
+        {/* ... (other inputs) */}
+
+        <View style={styles.errorContainer}>
+          <Text style={styles.errorText}>{errors.email}</Text>
+          <Text style={styles.errorText}>{errors.firstname}</Text>
+          <Text style={styles.errorText}>{errors.secondname}</Text>
+          <Text style={styles.errorText}>{errors.password}</Text>
+        </View>
+
+        {/* ... (other UI elements) */}
+
+        <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+          <TouchableOpacity
+            style={styles.signupButton}
+            onPress={validate}
+          >
+            <Text style={{ color: Color.white, fontWeight: 'bold', fontSize: 18 }}>
+              Sign Up
+            </Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    </ScrollView>
+  );
+};
+
+const styles = StyleSheet.create({
+  inputContainer: {
+    width: '100%',
+    height: 50,
+    backgroundColor: Color.secondary,
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 10,
+    marginBottom: 10,
+  },
+  input: {
+    marginHorizontal: 10,
+    opacity: 0.5,
+    flex: 1,
+  },
+  errorContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 10,
+  },
+  errorText: {
+    color: 'red',
+    marginBottom: 5,
+  },
+  signupButton: {
+    backgroundColor: Color.primary,
+    width: 250,
+    height: 60,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 30,
+    marginBottom: 20,
+  },
+});
+
+export default Signin;
+
+

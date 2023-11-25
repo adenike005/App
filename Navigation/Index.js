@@ -10,6 +10,7 @@ import Onboarding3 from '../Screen/Onboarding3';
 import Sign from '../Screen/Sign';
 import Signin from '../Screen/Signin';
 import Login from '../Screen/Login';
+import Loader from '../Components/Loader';
 
 const Stack = createStackNavigator();
 
@@ -26,16 +27,18 @@ const Index = () => {
          screenOptions={{
             headerShown: false,
           }}>
-            <Stack.Screen name='Splash' component={Splash}/>
-            {/* <Stack.Screen name='Onboardings' component={Onboardings}/> */}
+            {/* <Stack.Screen name='Splash' component={Splash}/>
+            
             
             {onboardingScreens.map(({ name, component }) => (
           <Stack.Screen key={name} name={name} component={component} />
         ))}
 
         <Stack.Screen name='Sign' component={Sign}/>
-        <Stack.Screen name='Signin' component={Signin}/>
+        <Stack.Screen name='Signin' component={Signin}/> */}
+
         <Stack.Screen name='Login' component={Login}/>
+        {/* <Stack.Screen name='Loader' component={Loader}/> */}
 
 
         </Stack.Navigator>
