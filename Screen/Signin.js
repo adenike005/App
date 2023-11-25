@@ -1,7 +1,6 @@
-
-
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import React from "react";
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {
   View,
   Text,
@@ -101,6 +100,8 @@ const RegistrationScreen = ({ navigation }) => {
       <ScrollView
         contentContainerStyle={{ paddingHorizontal: 20, justifyContent:"center",marginTop: 20}}
       >
+        <Icon name="arrow-left" size={25} color="black" 
+        onPress={() => navigation.goBack()}/>
         
         <View style={{justifyContent:"center", alignItems:"center"}}>
            <Image source={Images.Layer} style={{width:50, height
@@ -184,8 +185,10 @@ const RegistrationScreen = ({ navigation }) => {
             password
           />
           <Buttons title="Register" onPress={validate} />
-          <Text
-            onPress={() => navigation.navigate("Login")}
+          
+          <View style={{display:"flex", flexDirection:"row", alignItems:"center", justifyContent:"center"}}>
+             <Text
+           
             style={{
               color: Color.black,
               fontWeight: "bold",
@@ -193,8 +196,21 @@ const RegistrationScreen = ({ navigation }) => {
               fontSize: 16,
             }}
           >
-            Already have account ?Login
+            Already have account ?
           </Text>
+          <Text
+            onPress={() => navigation.navigate("Login")}
+            style={{
+              color: Color.primary,
+              fontWeight: "bold",
+              textAlign: "center",
+              fontSize: 16,
+              marginHorizontal: 5,
+            }}
+          >
+            Login
+          </Text>
+          </View>
         </View>
       </ScrollView>
     </SafeAreaView>
