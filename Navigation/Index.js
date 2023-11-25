@@ -27,7 +27,7 @@ const Index = () => {
          screenOptions={{
             headerShown: false,
           }}>
-            {/* <Stack.Screen name='Splash' component={Splash}/>
+            <Stack.Screen name='Splash' component={Splash}/>
             
             
             {onboardingScreens.map(({ name, component }) => (
@@ -35,7 +35,7 @@ const Index = () => {
         ))}
 
         <Stack.Screen name='Sign' component={Sign}/>
-        <Stack.Screen name='Signin' component={Signin}/> */}
+        <Stack.Screen name='Signin' component={Signin}/>
 
         <Stack.Screen name='Login' component={Login}/>
         {/* <Stack.Screen name='Loader' component={Loader}/> */}

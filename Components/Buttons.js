@@ -7,12 +7,13 @@ const Buttons = ({title, onPress = () => {}}) => {
       onPress={onPress}
       activeOpacity={0.7}
       style={{
-        height: 55,
+        height: 50,
         width: '100%',
         backgroundColor: Color.primary,
         marginVertical: 20,
         justifyContent: 'center',
         alignItems: 'center',
+        borderRadius: 25,
       }}>
       <Text style={{color: Color.white, fontWeight: 'bold', fontSize: 18}}>
         {title}

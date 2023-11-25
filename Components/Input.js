@@ -13,7 +13,7 @@ const Input = ({
   const [hidePassword, setHidePassword] = React.useState(password);
   const [isFocused, setIsFocused] = React.useState(false);
   return (
-    <View style={{marginBottom: 20}}>
+    <View style={{marginBottom: 5}}>
       <Text style={style.label}>{label}</Text>
       <View
         style={[
@@ -22,8 +22,8 @@ const Input = ({
             borderColor: error
               ? Color.red
               : isFocused
-              ? Color.dark
-              : Color.white,
+              ? Color.secondary
+              : Color.secondary,
             alignItems: 'center',
             backgroundColor:Color.secondary,
             borderRadius: 10
@@ -47,8 +47,9 @@ const Input = ({
         {password && (
           <Icon
             onPress={() => setHidePassword(!hidePassword)}
-            name={hidePassword ? 'eye-outline' : 'eye-off-outline'}
-            style={{color: Color.dark, fontSize: 22}}
+            // name={hidePassword ? 'eye-outline' : 'eye-off-outline'}
+            name={hidePassword ? 'eye-off-outline' : 'eye-outline'}
+            style={{color: Color.grey, fontSize: 22}}
           />
         )}
       </View>
