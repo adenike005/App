@@ -121,7 +121,8 @@ const Signin = ({ navigation }) => {
           />
         </View>
 
-        <Text style={{ marginBottom: 5 }}>{validate ? "Second Name" : errors.email}</Text>
+        <Text style={{ marginBottom: 5 }}>Last name</Text>
+        {!!errors.secondname && <Text style={styles.errorText}>{errors.secondname}</Text>}
         <View style={styles.inputContainer}>
           <TouchableOpacity>
             <Icon name="person" size={20} color={Color.grey} />
@@ -136,10 +137,10 @@ const Signin = ({ navigation }) => {
         {/* ... (other inputs) */}
 
         <View style={styles.errorContainer}>
-          <Text style={styles.errorText}>{errors.email}</Text>
+          {/* <Text style={styles.errorText}>{errors.email}</Text>
           <Text style={styles.errorText}>{errors.firstname}</Text>
           <Text style={styles.errorText}>{errors.secondname}</Text>
-          <Text style={styles.errorText}>{errors.password}</Text>
+          <Text style={styles.errorText}>{errors.password}</Text> */}
         </View>
 
         {/* ... (other UI elements) */}
