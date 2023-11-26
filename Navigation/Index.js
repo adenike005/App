@@ -11,6 +11,7 @@ import Sign from '../Screen/Sign';
 import Signin from '../Screen/Signin';
 import Login from '../Screen/Login';
 import Loader from '../Components/Loader';
+import Success from '../Screen/Success';
 
 const Stack = createStackNavigator();
 
@@ -38,6 +39,7 @@ const Index = () => {
         <Stack.Screen name='Signin' component={Signin}/>
 
         <Stack.Screen name='Login' component={Login}/>
+        <Stack.Screen name='Success' component={Success}/>
         {/* <Stack.Screen name='Loader' component={Loader}/> */}
 
 

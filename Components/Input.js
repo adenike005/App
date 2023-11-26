@@ -67,6 +67,7 @@ const style = StyleSheet.create({
     marginVertical: 5,
     fontSize: 14,
     color: Color.grey,
+    fontFamily:"Regular"
   },
   inputContainer: {
     height: 55,

@@ -1,6 +1,6 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import React from "react";
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import {
   View,
   Text,
@@ -8,7 +8,7 @@ import {
   Keyboard,
   ScrollView,
   Alert,
-  Image
+  Image,
 } from "react-native";
 
 import Color from "../Const/Color";
@@ -17,7 +17,6 @@ import Input from "../Components/Input";
 import Loader from "../Components/Loader";
 import Images from "../Const/Images";
 
-
 const RegistrationScreen = ({ navigation }) => {
   const [inputs, setInputs] = React.useState({
     email: "",
@@ -25,7 +24,7 @@ const RegistrationScreen = ({ navigation }) => {
     secondname: "",
     // phone: "",
     password: "",
-    confirmPassword: ""
+    confirmPassword: "",
   });
   const [errors, setErrors] = React.useState({});
   const [loading, setLoading] = React.useState(false);
@@ -60,13 +59,11 @@ const RegistrationScreen = ({ navigation }) => {
       isValid = false;
     }
 
-   
-
     if (!inputs.confirmPassword) {
-      handleError('Please input confirmPassword', "confirmPassword") ;
+      handleError("Please input confirmPassword", "confirmPassword");
       isValid = false;
     } else if (inputs.confirmPassword !== inputs.password) {
-      handleError('Passwords do not match', "confirmPassword");
+      handleError("Passwords do not match", "confirmPassword");
       isValid = false;
     }
 
@@ -81,7 +78,7 @@ const RegistrationScreen = ({ navigation }) => {
       try {
         setLoading(false);
         AsyncStorage.setItem("userData", JSON.stringify(inputs));
-        navigation.navigate("Login");
+        navigation.navigate("Success");
       } catch (error) {
         Alert.alert("Error", "Something went wrong");
       }
@@ -98,17 +95,27 @@ const RegistrationScreen = ({ navigation }) => {
     <SafeAreaView style={{ backgroundColor: Color.white, flex: 1 }}>
       <Loader visible={loading} />
       <ScrollView
-        contentContainerStyle={{ paddingHorizontal: 20, justifyContent:"center",marginTop: 20}}
+        contentContainerStyle={{
+          paddingHorizontal: 20,
+          justifyContent: "center",
+          marginTop: 20,
+        }}
       >
-        <Icon name="arrow-left" size={25} color="black" 
-        onPress={() => navigation.goBack()}/>
-        
-        <View style={{justifyContent:"center", alignItems:"center"}}>
-           <Image source={Images.Layer} style={{width:50, height
-            :50}} resizeMode='contain'/>
-           
+        <Icon
+          name="arrow-left"
+          size={25}
+          color="black"
+          onPress={() => navigation.goBack()}
+        />
+
+        <View style={{ justifyContent: "center", alignItems: "center" }}>
+          <Image
+            source={Images.Layer}
+            style={{ width: 50, height: 50 }}
+            resizeMode="contain"
+          />
         </View>
-        
+
         <Text
           style={{
             color: Color.black,
@@ -122,9 +129,10 @@ const RegistrationScreen = ({ navigation }) => {
         <Text
           style={{
             color: Color.dark,
-            fontSize: 18,
+            fontSize: 15,
             marginVertical: 10,
             fontFamily: "Thin",
+            // fontWeight:"300"
           }}
         >
           Elevate your Project Management with us
@@ -148,7 +156,7 @@ const RegistrationScreen = ({ navigation }) => {
             error={errors.fullname}
           />
 
-<Input
+          <Input
             onChangeText={(text) => handleOnchange(text, "secondname")}
             onFocus={() => handleError(null, "secondname")}
             iconName="account-outline"
@@ -175,7 +183,7 @@ const RegistrationScreen = ({ navigation }) => {
             error={errors.password}
             password
           />
-           <Input
+          <Input
             onChangeText={(text) => handleOnchange(text, "confirmPassword")}
             onFocus={() => handleError(null, "confirmPassword")}
             iconName="lock-outline"
@@ -185,31 +193,37 @@ const RegistrationScreen = ({ navigation }) => {
             password
           />
           <Buttons title="Register" onPress={validate} />
-          
-          <View style={{display:"flex", flexDirection:"row", alignItems:"center", justifyContent:"center"}}>
-             <Text
-           
+
+          <View
             style={{
-              color: Color.black,
-              fontWeight: "bold",
-              textAlign: "center",
-              fontSize: 16,
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "center",
             }}
           >
-            Already have account ?
-          </Text>
-          <Text
-            onPress={() => navigation.navigate("Login")}
-            style={{
-              color: Color.primary,
-              fontWeight: "bold",
-              textAlign: "center",
-              fontSize: 16,
-              marginHorizontal: 5,
-            }}
-          >
-            Login
-          </Text>
+            <Text
+              style={{
+                color: Color.black,
+                fontWeight: "bold",
+                textAlign: "center",
+                fontSize: 16,
+              }}
+            >
+              Already have account ?
+            </Text>
+            <Text
+              onPress={() => navigation.navigate("Success")}
+              style={{
+                color: Color.primary,
+                fontWeight: "bold",
+                textAlign: "center",
+                fontSize: 16,
+                marginHorizontal: 5,
+              }}
+            >
+              Login
+            </Text>
           </View>
         </View>
       </ScrollView>
