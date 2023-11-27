@@ -30,7 +30,7 @@ const Success = ({navigation}) => {
         </View>
 
         <View style={{display:"flex", alignItems:"center"}}>
-            <Buttons title="Continue" onPress={() => navigation.navigate("Login")}/>
+            <Buttons title="Continue" onPress={() => navigation.navigate("Onboarding4")}/>
         </View>
       
     </View>

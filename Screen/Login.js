@@ -74,7 +74,7 @@ const Login = ({ navigation }) => {
           <Text>Forgot Password?</Text>
         </View>
        <View style={{ marginHorizontal: 16, marginTop: "5%" }}>
-       <Buttons title="Login"  onPress={() => navigation.navigate("Success")}/>
+       <Buttons title="Login"  />
        </View>
       </View>
     </View>

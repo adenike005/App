@@ -10,8 +10,9 @@ import Onboarding3 from '../Screen/Onboarding3';
 import Sign from '../Screen/Sign';
 import Signin from '../Screen/Signin';
 import Login from '../Screen/Login';
-import Loader from '../Components/Loader';
+
 import Success from '../Screen/Success';
+import Onboarding4 from '../Screen/Onboarding4';
 
 const Stack = createStackNavigator();
 
@@ -20,6 +21,8 @@ const Index = () => {
     { name: 'Onboarding1', component: Onboarding1 },
     { name: 'Onboarding2', component: Onboarding2},
     { name: 'Onboarding3', component: Onboarding3},
+    { name: 'Onboarding4', component: Onboarding4},
+    
     
   ];
   return (
@@ -40,6 +43,7 @@ const Index = () => {
 
         <Stack.Screen name='Login' component={Login}/>
         <Stack.Screen name='Success' component={Success}/>
+        
         {/* <Stack.Screen name='Loader' component={Loader}/> */}
 
 

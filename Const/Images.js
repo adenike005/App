@@ -7,6 +7,7 @@ const Images = {
     Layer : require('../assets/Images/Layer.png'),
     Group5 : require('../assets/Images/Group5.png'),
     Group4 : require('../assets/Images/Group4.png'),
+    Group6 : require('../assets/Images/Group6.png'),
 
   };
   export default Images;
