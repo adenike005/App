@@ -213,7 +213,7 @@ const RegistrationScreen = ({ navigation }) => {
               Already have account ?
             </Text>
             <Text
-              onPress={() => navigation.navigate("Success")}
+              onPress={() => navigation.navigate("Login")}
               style={{
                 color: Color.primary,
                 fontWeight: "bold",
