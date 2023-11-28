@@ -1,18 +1,16 @@
-import { View, Text } from 'react-native'
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import { NavigationContainer } from '@react-navigation/native'
 import Splash from '../Screen/Splash';
 import Onboarding1 from '../Screen/Onboarding1';
 import Onboarding2 from '../Screen/Onboarding2';
-import DotNavigation from '../Const/DotNavigation';
 import Onboarding3 from '../Screen/Onboarding3';
 import Sign from '../Screen/Sign';
 import Signin from '../Screen/Signin';
 import Login from '../Screen/Login';
-
 import Success from '../Screen/Success';
 import Onboarding4 from '../Screen/Onboarding4';
+import Profile from '../Screen/Profile';
 
 const Stack = createStackNavigator();
 
@@ -43,6 +41,7 @@ const Index = () => {
 
         <Stack.Screen name='Login' component={Login}/>
         <Stack.Screen name='Success' component={Success}/>
+        <Stack.Screen name='Profile' component={Profile}/>
         
         {/* <Stack.Screen name='Loader' component={Loader}/> */}
 

@@ -8,6 +8,7 @@ const Images = {
     Group5 : require('../assets/Images/Group5.png'),
     Group4 : require('../assets/Images/Group4.png'),
     Group6 : require('../assets/Images/Group6.png'),
+    Group7 : require('../assets/Images/Group7.png'),
 
   };
   export default Images;

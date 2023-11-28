@@ -21,7 +21,8 @@ const Sign = ({navigation}) => {
       </View>
       <View>
         <TouchableOpacity
-        style={{backgroundColor:Color.secondary, width: 250, height:60,justifyContent:"center", alignItems:"center", borderRadius:30, }}><Text style={{color:Color.primary,fontWeight:"bold", fontSize:18}}>Log In</Text></TouchableOpacity>
+        style={{backgroundColor:Color.secondary, width: 250, height:60,justifyContent:"center", alignItems:"center", borderRadius:30, }}
+        onPress={() => navigation.navigate('Login')}><Text style={{color:Color.primary,fontWeight:"bold", fontSize:18}}>Log In</Text></TouchableOpacity>
       </View>
       <View style={{display:"flex", flexDirection:"row", justifyContent:"space-between", marginTop:30}}>
         <View style={{marginHorizontal: 10,}}><Text style={{fontFamily:"Thin"}}>Privacy Policy</Text></View>

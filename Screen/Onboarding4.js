@@ -73,7 +73,7 @@ const Onboarding4 = ({navigation}) => {
            
            <View style={{display:"flex", justifyContent:"center", alignItems:"center", marginTop:"20%"}}>
            <Button title='Start Profile Verification' 
-           />
+            onPress={() => navigation.navigate("Profile")}/>
           </View>
           </View>
         </View>
